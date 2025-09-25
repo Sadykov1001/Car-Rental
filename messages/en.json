@@ -1,10 +1,7 @@
 {
-	"HomePage": {
-		"title": "Hello world!",
-		"Home": "Home",
-		"Vehicles": "Vehicles",
-		"Details": "Details",
-		"About Us": "About Us",
-		"Contact Us": "Contact Us"
-	}
+	"Home": "Home",
+	"Vehicles": "Vehicles",
+	"Details": "Details",
+	"About Us": "About Us",
+	"Contact Us": "Contact Us"
 }

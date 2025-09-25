@@ -1,5 +1,7 @@
 {
-	"HomePage": {
-		"title": "Merhaba dünya!"
-	}
+	"Home": "Ana sayfa",
+	"Vehicles": "Araçlar",
+	"Details": "Detaylar",
+	"About Us": "Hakkımızda",
+	"Contact Us": "Bize ulaşın"
 }

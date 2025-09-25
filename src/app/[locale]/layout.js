@@ -22,7 +22,7 @@ export default async function RootLayout({ children, params }) {
 	if (!hasLocale(routing.locales, locale)) {
 		notFound()
 	}
-	const t = await getTranslations('HomePage')
+	const t = await getTranslations()
 	return (
 		<html lang='en'>
 			<body className='max-w-[1400px] m-auto'>
@@ -35,13 +35,23 @@ export default async function RootLayout({ children, params }) {
 						<Link href='/about'>{t('About Us')}</Link>
 						<Link href='/contact'>{t('Contact Us')}</Link>
 					</div>
-					<div className='flex items-center gap-2'>
-						<button className=' bg-[#5937E0] p-[10px] text-white rounded-full'>
-							<Phone />
-						</button>
+					<div className='flex gap-[15px] items-center'>
+						<div className='flex items-center gap-2'>
+							<button className=' bg-[#5937E0] p-[10px] text-white rounded-full'>
+								<Phone />
+							</button>
+							<div>
+								<p>Need help?</p>
+								<p className='font-semibold'>+996 247-1680</p>
+							</div>
+						</div>
 						<div>
-							<p>Need help?</p>
-							<p className='font-semibold'>+996 247-1680</p>
+							<select>
+								<option value='en'>en</option>
+								<option value='tr'>tr</option>
+								<option value='ru'>ru</option>
+								<option value='tj'>tj</option>
+							</select>
 						</div>
 					</div>
 				</header>
