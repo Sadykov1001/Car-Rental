@@ -94,7 +94,9 @@ export default async function RootLayout({ children, params }) {
 						</div>
 						<br />
 						<div>
-							<h2 className='font-bold text-[20px] mb-[5px]'>Useful links</h2>
+							<h2 className='font-bold text-[20px] mb-[5px]'>
+								{t('Useful links')}
+							</h2>
 							<div className='flex flex-col'>
 								<Link href='/'>{t('Home')}</Link>
 								<Link href='/vehicles'>{t('Vehicles')}</Link>
@@ -116,12 +118,14 @@ export default async function RootLayout({ children, params }) {
 						</div>
 						<br />
 						<div>
-							<h2 className='font-bold text-[20px] mb-[5px]'>Vehicles</h2>
-							<p>Sedan</p>
-							<p>Cabriolet</p>
-							<p>Pickup</p>
-							<p>Minivan</p>
-							<p>SUV</p>
+							<h2 className='font-bold text-[20px] mb-[5px]'>
+								{t('Vehicles')}
+							</h2>
+							<p>{t('Sedan')}</p>
+							<p>{t('Cabriolet')}</p>
+							<p>{t('Pickup')}</p>
+							<p>{t('Minivan')}</p>
+							<p>{t('SUV')}</p>
 						</div>
 					</div>
 					<div>
@@ -136,9 +140,10 @@ export default async function RootLayout({ children, params }) {
 						</div>
 						<br />
 						<div>
-							<h2 className='font-bold text-[20px] mb-[5px]'>Download App</h2>
+							<h2 className='font-bold text-[20px] mb-[5px]'>
+								{t('Download App')}
+							</h2>
 							<div className='flex flex-col gap-2'>
-								{/* App Store */}
 								<a
 									href='https://www.apple.com/app-store/'
 									target='_blank'
@@ -152,7 +157,6 @@ export default async function RootLayout({ children, params }) {
 									/>
 								</a>
 
-								{/* Google Play */}
 								<a
 									href='https://play.google.com/store/'
 									target='_blank'
