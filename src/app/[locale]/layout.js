@@ -17,26 +17,33 @@ import {
 	Youtube,
 } from 'lucide-react'
 import Link from 'next/link'
+import LanguageSwitcher from './components/languageSwitcher'
 export default async function RootLayout({ children, params }) {
 	const { locale } = await params
 	if (!hasLocale(routing.locales, locale)) {
 		notFound()
 	}
 	const t = await getTranslations()
+	const data = [
+		{
+			name: "Mercedes",
+			price : "25$",
+			type : "Sedan",
+		}
+	]
 	return (
 		<html lang='en'>
 			<body className='max-w-[1400px] m-auto'>
 				<header className='flex justify-between items-center p-5 '>
 					<Image src={logo} alt='logo' />
-					<div className='flex gap-5'>
-						<Link href='/'>{t('Home')}</Link>
-						<Link href='/vehicles'>{t('Vehicles')}</Link>
-						<Link href='/details'>{t('Details')}</Link>
-						<Link href='/about'>{t('About Us')}</Link>
-						<Link href='/contact'>{t('Contact Us')}</Link>
+					<div className='gap-5 hidden xl:flex'>
+						<Link className='font-semibold' href='/'>{t('Home')}</Link>
+						<Link className='font-semibold' href='/vehicles'>{t('Vehicles')}</Link>
+						<Link className='font-semibold' href='/about'>{t('About Us')}</Link>
+						<Link className='font-semibold' href='/contact'>{t('Contact Us')}</Link>
 					</div>
-					<div className='flex gap-[15px] items-center'>
-						<div className='flex items-center gap-2'>
+					<div className='flex  gap-[15px] items-center'>
+						<div className='xl:flex hidden items-center gap-2'>
 							<button className=' bg-[#5937E0] p-[10px] text-white rounded-full'>
 								<Phone />
 							</button>
@@ -46,17 +53,13 @@ export default async function RootLayout({ children, params }) {
 							</div>
 						</div>
 						<div>
-							<select>
-								<option value='en'>en</option>
-								<option value='tr'>tr</option>
-								<option value='ru'>ru</option>
-								<option value='tj'>tj</option>
-							</select>
+							<LanguageSwitcher />
 						</div>
 					</div>
 				</header>
 				<NextIntlClientProvider>{children}</NextIntlClientProvider>
-				<footer className='flex justify-between'>
+				<br /><br /><br /><br /><br /><br />
+				<footer className='xl:flex xl:flex-row flex flex-col gap-[20px] ml-[100px] xl:ml-[0px] xl:justify-between p-5 '>
 					<div>
 						<Image src={logo} alt='logo' />
 						<br />
@@ -100,7 +103,6 @@ export default async function RootLayout({ children, params }) {
 							<div className='flex flex-col'>
 								<Link href='/'>{t('Home')}</Link>
 								<Link href='/vehicles'>{t('Vehicles')}</Link>
-								<Link href='/details'>{t('Details')}</Link>
 								<Link href='/about'>{t('About Us')}</Link>
 								<Link href='/contact'>{t('Contact Us')}</Link>
 							</div>
