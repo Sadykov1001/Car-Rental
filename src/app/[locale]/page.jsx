@@ -272,27 +272,6 @@ export default async function Home() {
 					})}
 				</div>
 			</section>
-			<section className='flex items-center '>
-				<div className='space-y-5 xl:w-[50%] mx-[10px] mt-[30px] '>
-					<h2 className='font-bold text-[40px]'>Download mobile app</h2>
-					<p className='w-[600px] text-gray-600 '>
-						Imperdiet ut tristique viverra nunc. Ultrices orci vel auctor cursus
-						turpis nibh placerat massa. Fermentum urna ut at et in. Turpis
-						aliquet cras hendrerit enim condimentum. Condimentum interdum risus
-						bibendum urna .
-					</p>
-					<div className='flex gap-5'>
-						<Image src={appleDownload} alt='App Store' width={180} height={60} />
-						<Image
-							src={playMarketDownload}
-							alt='Google Play'
-							width={180}
-							height={60}
-						/>
-					</div>
-				</div>
-				<Image src={phone} alt='Phone' className='w-[400px]' />
-			</section>
 		</>
 	)
 }
