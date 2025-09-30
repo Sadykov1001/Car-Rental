@@ -1,3 +1,4 @@
+'use client'
 import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
 import carbg from '@/app/images/carBg.png'
@@ -16,82 +17,14 @@ import {
 	Snowflake,
 	Wallet,
 } from 'lucide-react'
-export default async function Home() {
-	const t = await getTranslations()
-	const data = [
-		{
-			id: 1,
-			name: 'Mercedes',
-			price: '$100',
-			year: 2022,
-			img: mercedess,
-			type: `${t('Sedan')}`,
-		},
-		{
-			id: 2,
-			name: 'Bmw m5 f10',
-			price: '$95',
-			year: 2023,
-			img: mercedess,
-			type: `${t('Sedan')}`,
-		},
-		{
-			id: 3,
-			name: 'Cadillac',
-			price: '$200',
-			year: 2025,
-			img: mercedess,
-			type: `${t('Sedan')}`,
-		},
-		{
-			id: 4,
-			name: 'Lexus',
-			price: '$70',
-			year: 2020,
-			img: mercedess,
-			type: `${t('Sedan')}`,
-		},
-		{
-			id: 5,
-			name: 'Bmw m8',
-			price: '$250',
-			year: 2024,
-			img: mercedess,
-			type: `${t('Sedan')}`,
-		},
-		{
-			id: 6,
-			name: 'Supra',
-			price: '$60',
-			year: 2017,
-			img: mercedess,
-			type: `${t('Sedan')}`,
-		},
-		{
-			id: 7,
-			name: 'Tayota',
-			price: '$70',
-			year: '2018',
-			img: mercedess,
-			type: `${t('Sedan')}`,
-		},
-		{
-			id: 8,
-			name: 'Camry',
-			price: '$100',
-			year: 2017,
-			img: mercedess,
-			type: `${t('Sedan')}`,
-		},
-		{
-			id: 8,
-			name: 'Camry',
-			price: '$100',
-			year: 2017,
-			img: mercedess,
-			type: `${t('Sedan')}`,
-		},
-	]
+import { ZustandRequests } from '@/zustand/zustand'
+import { useEffect } from 'react'
+export default function Home({ t }) {
+	const { getDataCars, dataCars } = ZustandRequests()
+	useEffect(() => {
+		getDataCars()
+	}, [])
+	console.log(dataCars)
 	return (
 		<>
 			<section className='bg-[#5937E0] relative z-[-10] rounded-[30px] xl:flex xl:flex-row flex flex-col '>
@@ -233,11 +166,19 @@ export default async function Home() {
 					</h2>
 					<button>Veiw all</button>
 				</div>
+				<br /><br />
 				<div className='flex flex-wrap gap-30 justify-center'>
-					{data.map((e, i) => {
+					{dataCars?.map((e, i) => {
 						return (
 							<div key={i} className='space-y-2.5'>
-								<Image src={e.img} alt='Car' className='w-[300px] ' />
+								<Image
+									src={mercedess}
+									alt='Car'
+									width={300}
+									height={200}
+									className='rounded-xl'
+								/>
+
 								<div className='flex justify-between items-center'>
 									<div>
 										<h2 className='text-[20px] font-bold'>{e.name}</h2>
