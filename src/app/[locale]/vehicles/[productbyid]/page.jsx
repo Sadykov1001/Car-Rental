@@ -22,10 +22,9 @@ const ProductByIdPage = () => {
 		getDataCarsById(productbyid)
 	}, [productbyid])
 
-
 	return (
 		<>
-			<div className='p-5 flex '>
+			<div className='p-5 xl:flex '>
 				<div className='w-[50%]'>
 					<h1 className='font-bold text-[30px]'>{dataCarsById.name}</h1>
 					<div className='flex gap-[5px] items-center'>
@@ -34,13 +33,14 @@ const ProductByIdPage = () => {
 						</h2>
 						<p className='text-gray-600'>/day</p>
 					</div>
-					<div className='relative w-[600px] h-[320px] overflow-hidden rounded-xl'>
+					<div className='relative xl:w-[600px] w-[350px] xl:h-[320px] h-[250px] overflow-hidden rounded-xl'>
 						<Image src={dataCarsById.img} fill className='' unoptimized />
 					</div>
+					<br />
 				</div>
 				<div className='space-y-15'>
 					<h2 className='font-bold text-[20px]'>Technical Specification</h2>
-					<div className='flex justify-between w-[500px] '>
+					<div className='flex xl:justify-between gap-[60px] xl:gap-[0px] xl:w-[500px] '>
 						<div className='space-y-1.5'>
 							<SlidersHorizontal />
 							<h3 className='font-bold'>Gear Box</h3>
@@ -57,7 +57,7 @@ const ProductByIdPage = () => {
 							<p className='text-gray-600'>2</p>
 						</div>
 					</div>
-					<div className='flex justify-between w-[500px] '>
+					<div className='flex xl:justify-between gap-[60px] xl:gap-[0px] xl:w-[500px] '>
 						<div className='space-y-1.5'>
 							<SlidersHorizontal />
 							<h3 className='font-bold'>Air Conditioner</h3>
@@ -74,7 +74,7 @@ const ProductByIdPage = () => {
 							<p className='text-gray-600'>500</p>
 						</div>
 					</div>
-					
+
 					<div className='space-y-5'>
 						<h2 className='font-bold text-[22px]'>Car Equipment</h2>
 						<div className='flex  gap-[40px]'>

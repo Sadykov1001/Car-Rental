@@ -79,7 +79,7 @@ export default function Home({ t }) {
 			<br />
 			<section>
 				<div className='flex justify-between'>
-					<h2 className='text-[30px] font-bold'>
+					<h2 className='xl:text-[30px] text-[22px] font-bold'>
 						Choose the car that suits you
 					</h2>
 					<Link href={'/vehicles'}>
