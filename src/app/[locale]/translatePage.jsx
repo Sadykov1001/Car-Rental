@@ -3,7 +3,11 @@ import { getTranslations } from 'next-intl/server'
 import Home from './Home'
 
 export default async function TranslatePage() {
-  const t = await getTranslations()
+	const t = await getTranslations()
 
-  return <Home t={t} />
+	return (
+		<div>
+			<Home t={t} />
+		</div>
+	)
 }

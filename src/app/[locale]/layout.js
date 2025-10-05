@@ -58,8 +58,8 @@ export default async function RootLayout({ children, params }) {
 					</div>
 				</header>
 				<NextIntlClientProvider>{children}</NextIntlClientProvider>
-				
-				<footer className='xl:flex xl:flex-row flex flex-col gap-[20px] ml-[100px] xl:ml-[0px] xl:justify-between p-5 '>
+
+				<footer className='xl:flex xl:flex-row flex flex-col gap-[20px] xl:ml-[0px] xl:justify-between p-5 '>
 					<div>
 						<Image src={logo} alt='logo' />
 						<br />

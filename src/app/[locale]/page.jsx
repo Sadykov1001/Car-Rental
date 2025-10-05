@@ -5,9 +5,6 @@ import carbg from '@/app/images/carBg.png'
 import drift from '@/app/images/drift.png'
 import img1 from '@/app/images/img1.png'
 import mercedess from '@/app/images/mercedes.png'
-import appleDownload from '@/app/images/appleDownload.png'
-import playMarketDownload from '@/app/images/playMarketDownload.png'
-import phone from '@/app/images/image.png'
 import {
 	Calendar,
 	Car,
@@ -18,7 +15,9 @@ import {
 	Wallet,
 } from 'lucide-react'
 import { ZustandRequests } from '@/zustand/zustand'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import BookingCar from './booking/page'
+import Link from 'next/link'
 export default function Home({ t }) {
 	const { getDataCars, dataCars } = ZustandRequests()
 	useEffect(() => {
@@ -27,14 +26,14 @@ export default function Home({ t }) {
 	console.log(dataCars)
 	return (
 		<>
-			<section className='bg-[#5937E0] relative z-[-10] rounded-[30px] xl:flex xl:flex-row flex flex-col '>
+			<section className='bg-[#5937E0] relative z-[0] rounded-[30px] xl:flex xl:flex-row flex flex-col '>
 				<Image
 					src={carbg}
 					alt='Bmw'
 					className='absolute z-[-1] xl:left-100 top-40'
 				/>
 				<Image src={drift} alt='Drift' className='absolute z-[-2] ' />
-				<div className='text-center xl:text-start xl:w-[50%] xl:pl-[100px] pl-[10px] xl:mt-[50px] space-y-5 py-[100px] relative z-[1]'>
+				<div className='text-center xl:text-start xl:w-[50%] xl:pl-[100px] pl-[10px] xl:mt-[50px] space-y-5 py-[100px] relative z-[10]'>
 					<h2 className='text-white text-[40px] font-bold xl:w-[70%] font'>
 						Experience the road like never before
 					</h2>
@@ -42,47 +41,14 @@ export default function Home({ t }) {
 						Aliquam adipiscing velit semper morbi. Purus non eu cursus porttitor
 						tristique et gravida. Quis nunc interdum gravida ullamcorper
 					</p>
+					<Link href={`/vehicles`}>
 					<button className='bg-[#FF9E0C] text-white px-[20px] py-[5px] rounded-[10px]'>
 						View all cars
 					</button>
+					</Link>
 				</div>
 				<div className='bg-white  xl:my-[50px] xl:w-[400px] rounded-[30px] xl:ml-[200px]'>
-					<h2 className='text-[20px] text-center  font-bold pt-[50px]'>
-						Book your car
-					</h2>
-					<div className='flex flex-col gap-5 p-10'>
-						<select className='bg-[#FAFAFA] px-[10px] py-[5px] rounded-[10px]'>
-							<option value=''>Car type</option>
-						</select>
-						<select className='bg-[#FAFAFA] px-[10px] py-[5px] rounded-[10px]'>
-							<option value=''>Place of rental</option>
-							<option value=''>Place of rental</option>
-						</select>
-						<select className='bg-[#FAFAFA] px-[10px] py-[5px] rounded-[10px]'>
-							<option value=''>Place of return</option>
-						</select>
-						<div className='flex items-center justify-between  rounded-2xl bg-gray-50 px-4 py-2 '>
-							<input
-								type='date'
-								className='bg-transparent outline-none flex-1'
-								placeholder='Rental date'
-							/>
-							<Calendar size={20} className='text-gray-600' />
-						</div>
-						<div className='flex items-center justify-between  rounded-2xl bg-gray-50 px-4 py-2 '>
-							<input
-								type='date'
-								className='bg-transparent outline-none flex-1'
-								placeholder='Rental date'
-							/>
-							<Calendar size={20} className='text-gray-600' />
-						</div>
-					</div>
-					<div className='text-center w-[250px] m-auto'>
-						<button className='bg-[#FF9E0C] w-full  text-white  px-[20px] py-[5px] rounded-[10px]'>
-							Book now
-						</button>
-					</div>
+					<BookingCar />
 					<br />
 				</div>
 			</section>
@@ -108,6 +74,68 @@ export default function Home({ t }) {
 					<p>
 						Pretium convallis id diam sed commodo vestibulum lobortis volutpat
 					</p>
+				</div>
+			</section>
+			<br />
+			<section>
+				<div className='flex justify-between'>
+					<h2 className='text-[30px] font-bold'>
+						Choose the car that suits you
+					</h2>
+					<Link href={'/vehicles'}>
+						<button>Veiw all</button>
+					</Link>
+				</div>
+				<br />
+				<br />
+				<div className='flex flex-wrap gap-20 justify-center'>
+					{dataCars?.slice(0, 3)?.map((e, i) => {
+						return (
+							<div key={i} className='space-y-2.5'>
+								<div className='relative w-[350px] h-[220px] overflow-hidden rounded-xl'>
+									<Image
+										src={e.img}
+										alt={e.name}
+										fill
+										className=''
+										unoptimized
+									/>
+								</div>
+
+								<div className='flex justify-between items-center'>
+									<div>
+										<h2 className='text-[20px] font-bold'>{e.name}</h2>
+										<h2>{e.type}</h2>
+									</div>
+									<div>
+										<h2 className='text-[#5937E0] font-bold text-[20px]'>
+											{e.price}$
+										</h2>
+										<h2>per day</h2>
+									</div>
+								</div>
+								<div className='flex gap-5'>
+									<div className='flex items-center gap-2'>
+										<SlidersHorizontal />
+										<p>Automat</p>
+									</div>
+									<div className='flex items-center gap-2'>
+										<Fuel />
+										<p>PB 95</p>
+									</div>
+									<div className='flex items-center gap-2'>
+										<Snowflake />
+										<p>Air Conditioner</p>
+									</div>
+								</div>
+								<Link href={`/vehicles/${e.id}`}>
+									<button className='w-full bg-[#5937E0] text-white py-[5px] rounded-xl '>
+										View Details
+									</button>
+								</Link>
+							</div>
+						)
+					})}
 				</div>
 			</section>
 			<section className='xl:flex xl:w-[80%] xl:gap-30 xl:items-center m-auto my-[50px] '>
@@ -156,61 +184,6 @@ export default function Home({ t }) {
 						tristique et gravida. Quis nunc interdum gravida ullamcorper sed
 						integer. Quisque eleifend tincidunt vulputate libero
 					</p>
-				</div>
-			</section>
-
-			<section>
-				<div className='flex justify-between'>
-					<h2 className='text-[30px] font-bold'>
-						Choose the car that suits you
-					</h2>
-					<button>Veiw all</button>
-				</div>
-				<br /><br />
-				<div className='flex flex-wrap gap-30 justify-center'>
-					{dataCars?.map((e, i) => {
-						return (
-							<div key={i} className='space-y-2.5'>
-								<Image
-									src={mercedess}
-									alt='Car'
-									width={300}
-									height={200}
-									className='rounded-xl'
-								/>
-
-								<div className='flex justify-between items-center'>
-									<div>
-										<h2 className='text-[20px] font-bold'>{e.name}</h2>
-										<h2>{e.type}</h2>
-									</div>
-									<div>
-										<h2 className='text-[#5937E0] font-bold text-[20px]'>
-											{e.price}
-										</h2>
-										<h2>per day</h2>
-									</div>
-								</div>
-								<div className='flex gap-5'>
-									<div className='flex items-center gap-2'>
-										<SlidersHorizontal />
-										<p>Automat</p>
-									</div>
-									<div className='flex items-center gap-2'>
-										<Fuel />
-										<p>PB 95</p>
-									</div>
-									<div className='flex items-center gap-2'>
-										<Snowflake />
-										<p>Air Conditioner</p>
-									</div>
-								</div>
-								<button className='w-full bg-[#5937E0] text-white py-[5px] rounded-xl '>
-									View Details
-								</button>
-							</div>
-						)
-					})}
 				</div>
 			</section>
 		</>

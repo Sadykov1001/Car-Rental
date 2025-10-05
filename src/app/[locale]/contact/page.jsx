@@ -8,6 +8,7 @@ import audiLogo from '@/app/images/audiLogo.png'
 import fordLogo from '@/app/images/fordLogo.png'
 import jeepLogo from '@/app/images/jeepLogo.png'
 import toyotaLogo from '@/app/images/toyotaLogo.png'
+import BookingCar from '../booking/page'
 const ContactPage = () => {
 	return (
 		<>
@@ -16,49 +17,13 @@ const ContactPage = () => {
 				<p className='text-[#9B9B9B]'>Home / </p>
 				<p>Contact Us</p>
 			</span>
-			<section className='flex items-center gap-[50px]'>
-				<div className='bg-[#5937E0] xl:my-[50px] xl:w-[400px] rounded-[30px]'>
-					<h2 className='text-[20px] text-white text-center  font-bold pt-[50px]'>
-						Book your car
-					</h2>
-					<div className='flex flex-col gap-5 p-10'>
-						<select className='bg-[#FAFAFA] px-[10px] py-[5px] rounded-[10px]'>
-							<option value=''>Car type</option>
-						</select>
-						<select className='bg-[#FAFAFA] px-[10px] py-[5px] rounded-[10px]'>
-							<option value=''>Place of rental</option>
-							<option value=''>Place of rental</option>
-						</select>
-						<select className='bg-[#FAFAFA] px-[10px] py-[5px] rounded-[10px]'>
-							<option value=''>Place of return</option>
-						</select>
-						<div className='flex items-center justify-between  rounded-2xl bg-gray-50 px-4 py-2 '>
-							<input
-								type='date'
-								className='bg-transparent outline-none flex-1'
-								placeholder='Rental date'
-							/>
-							<Calendar size={20} className='text-gray-600' />
-						</div>
-						<div className='flex items-center justify-between  rounded-2xl bg-gray-50 px-4 py-2 '>
-							<input
-								type='date'
-								className='bg-transparent outline-none flex-1'
-								placeholder='Rental date'
-							/>
-							<Calendar size={20} className='text-gray-600' />
-						</div>
-					</div>
-					<div className='text-center w-[250px] m-auto'>
-						<button className='bg-[#FF9E0C] w-full  text-white  px-[20px] py-[5px] rounded-[10px]'>
-							Book now
-						</button>
-					</div>
-					<br />
+			<section className='xl:flex items-center gap-[50px]'>
+				<div className='mx-[20px] xl:mx-[0px] xl:w-[30%] bg-[#5937E0] rounded-2xl h-[480px]'>
+					<BookingCar />
 				</div>
 				<Image src={img3} alt='hichi' className='w-[900px] h-[480px]' />
 			</section>
-			<section className='xl:my-[50px] flex justify-between xl:mr-[50px]'>
+			<section className='xl:my-[50px] xl:flex mx-[20px] my-[20px] justify-between xl:mr-[50px] space-y-3'>
 				<div className='flex items-center gap-2'>
 					<button className=' bg-[#FF9E0C] p-[10px] text-white rounded-full'>
 						<MapPin />
@@ -112,7 +77,7 @@ const ContactPage = () => {
 					allowFullScreen
 				></iframe>
 			</section>
-			<section className='flex items-center justify-center gap-20 my-20 '>
+			<section className='xl:flex xl:items-center flex flex-col items-center xl:justify-center gap-20 my-20 '>
 				<Image className='w-[70px]' src={toyotaLogo} alt='Toyota' />
 				<Image className='w-[70px]' src={fordLogo} alt='Ford' />
 				<Image className='w-[70px]' src={mersLogo} alt='Merc' />
