@@ -42,9 +42,9 @@ export default function Home({ t }) {
 						tristique et gravida. Quis nunc interdum gravida ullamcorper
 					</p>
 					<Link href={`/vehicles`}>
-					<button className='bg-[#FF9E0C] text-white px-[20px] py-[5px] rounded-[10px]'>
-						View all cars
-					</button>
+						<button className='bg-[#FF9E0C] text-white px-[20px] py-[5px] rounded-[10px]'>
+							View all cars
+						</button>
 					</Link>
 				</div>
 				<div className='bg-white  xl:my-[50px] xl:w-[400px] rounded-[30px] xl:ml-[200px]'>
@@ -78,8 +78,8 @@ export default function Home({ t }) {
 			</section>
 			<br />
 			<section>
-				<div className='flex justify-between'>
-					<h2 className='xl:text-[30px] text-[22px] font-bold'>
+				<div className='flex justify-between xl:mx-[0px] mx-[10px]'>
+					<h2 className='xl:text-[30px] text-[20px] font-bold'>
 						Choose the car that suits you
 					</h2>
 					<Link href={'/vehicles'}>
@@ -139,7 +139,9 @@ export default function Home({ t }) {
 				</div>
 			</section>
 			<section className='xl:flex xl:w-[80%] xl:gap-30 xl:items-center m-auto my-[50px] '>
-				<Image src={img1} className='w-[400px] h-[500px]' alt='img' />
+				<div className='xl:mx-[0px] mx-[10px]'>
+					<Image src={img1} className='w-[400px] h-[500px]' alt='img' />
+				</div>
 				<div className='space-y-2.5 xl:w-[45%] mx-[10px] mt-[30px] '>
 					<div className='flex items-center gap-[10px]'>
 						<p className='py-[5px] px-[15px] text-white bg-[#5937E0] items-center rounded-full'>
