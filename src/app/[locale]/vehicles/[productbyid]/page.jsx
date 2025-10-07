@@ -3,7 +3,6 @@
 import { ZustandRequests } from '@/zustand/zustand'
 import { useParams } from 'next/navigation'
 import { useEffect } from 'react'
-import mersedes from '@/app/images/mercedes.png'
 import {
 	Check,
 	DoorClosed,

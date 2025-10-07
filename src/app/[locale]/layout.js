@@ -1,12 +1,7 @@
-import './globals.css'
-import { hasLocale, NextIntlClientProvider } from 'next-intl'
-import { routing } from '@/i18n/routing'
-import { notFound } from 'next/navigation'
+import appleDownload from '@/app/images/appleDownload.png'
 import logo from '@/app/images/Logo.png'
 import playMarketDownload from '@/app/images/playMarketDownload.png'
-import appleDownload from '@/app/images/appleDownload.png'
-import { getTranslations } from 'next-intl/server'
-import Image from 'next/image'
+import { routing } from '@/i18n/routing'
 import {
 	Facebook,
 	Instagram,
@@ -16,8 +11,14 @@ import {
 	Twitter,
 	Youtube,
 } from 'lucide-react'
+import { hasLocale, NextIntlClientProvider } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
+import Image from 'next/image'
 import Link from 'next/link'
+import { notFound } from 'next/navigation'
 import LanguageSwitcher from './components/languageSwitcher'
+import './globals.css'
+import MobileDrawer from './components/leftDrawer'
 export default async function RootLayout({ children, params }) {
 	const { locale } = await params
 	if (!hasLocale(routing.locales, locale)) {
@@ -26,10 +27,10 @@ export default async function RootLayout({ children, params }) {
 	const t = await getTranslations()
 	const data = [
 		{
-			name: "Mercedes",
-			price : "25$",
-			type : "Sedan",
-		}
+			name: 'Mercedes',
+			price: '25$',
+			type: 'Sedan',
+		},
 	]
 	return (
 		<html lang='en'>
@@ -37,10 +38,18 @@ export default async function RootLayout({ children, params }) {
 				<header className='flex justify-between items-center p-5 '>
 					<Image src={logo} alt='logo' />
 					<div className='gap-5 hidden xl:flex'>
-						<Link className='font-semibold' href='/'>{t('Home')}</Link>
-						<Link className='font-semibold' href='/vehicles'>{t('Vehicles')}</Link>
-						<Link className='font-semibold' href='/about'>{t('About Us')}</Link>
-						<Link className='font-semibold' href='/contact'>{t('Contact Us')}</Link>
+						<Link className='font-semibold' href='/'>
+							{t('Home')}
+						</Link>
+						<Link className='font-semibold' href='/vehicles'>
+							{t('Vehicles')}
+						</Link>
+						<Link className='font-semibold' href='/about'>
+							{t('About Us')}
+						</Link>
+						<Link className='font-semibold' href='/contact'>
+							{t('Contact Us')}
+						</Link>
 					</div>
 					<div className='flex  gap-[15px] items-center'>
 						<div className='xl:flex hidden items-center gap-2'>
@@ -52,8 +61,9 @@ export default async function RootLayout({ children, params }) {
 								<p className='font-semibold'>+996 247-1680</p>
 							</div>
 						</div>
-						<div>
+						<div className='flex items-center gap-[10px]'>
 							<LanguageSwitcher />
+							<MobileDrawer />
 						</div>
 					</div>
 				</header>

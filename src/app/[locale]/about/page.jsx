@@ -1,12 +1,11 @@
-import React from 'react'
-import video from '@/app/images/video.png'
-import Image from 'next/image'
+import car from '@/app/images/car.png'
 import img2 from '@/app/images/img2.png'
 import rounded from '@/app/images/rounded.png'
-import car from '@/app/images/car.png'
+import video from '@/app/images/video.png'
 import { Check, Quote } from 'lucide-react'
-import Questions from '../components/Questions'
+import Image from 'next/image'
 import Link from 'next/link'
+import Questions from '../components/Questions'
 const AboutPage = () => {
 	return (
 		<>
