@@ -23,7 +23,7 @@ const ProductByIdPage = () => {
 
 	return (
 		<>
-			<div className='p-5 xl:flex '>
+			<div className='p-5 xl:flex	'>
 				<div className='w-[50%]'>
 					<h1 className='font-bold text-[30px]'>{dataCarsById.name}</h1>
 					<div className='flex gap-[5px] items-center'>
@@ -33,7 +33,7 @@ const ProductByIdPage = () => {
 						<p className='text-gray-600'>/day</p>
 					</div>
 					<div className='relative xl:w-[600px] w-[350px] xl:h-[320px] h-[250px] overflow-hidden rounded-xl'>
-						<Image src={dataCarsById.img} fill className='' unoptimized />
+						<Image src={dataCarsById.img} alt='image' fill unoptimized />
 					</div>
 					<br />
 				</div>

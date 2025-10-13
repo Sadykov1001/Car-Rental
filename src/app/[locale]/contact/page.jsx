@@ -17,6 +17,7 @@ const ContactPage = () => {
 				<p className='text-[#9B9B9B]'>Home / </p>
 				<p>Contact Us</p>
 			</span>
+			<br />
 			<section className='xl:flex items-center gap-[50px]'>
 				<div className='mx-[20px] xl:mx-[0px] xl:w-[30%] bg-[#5937E0] rounded-2xl h-[480px]'>
 					<BookingCar />
@@ -73,11 +74,11 @@ const ContactPage = () => {
 					loading='lazy'
 					referrerpolicy='no-referrer-when-downgrade'
 				"
-					className='w-[97%] h-[100vh] xl:mr-[100px]'
+					className='xl:w-[97%] w-[100%] xl:h-[100vh] h-[50vh] xl:mr-[100px]'
 					allowFullScreen
 				></iframe>
 			</section>
-			<section className='xl:flex xl:items-center flex flex-col items-center xl:justify-center gap-20 my-20 '>
+			<section className='xl:flex xl:flex-row xl:items-center flex flex-col items-center xl:justify-center gap-20 my-20 '>
 				<Image className='w-[70px]' src={toyotaLogo} alt='Toyota' />
 				<Image className='w-[70px]' src={fordLogo} alt='Ford' />
 				<Image className='w-[70px]' src={mersLogo} alt='Merc' />
