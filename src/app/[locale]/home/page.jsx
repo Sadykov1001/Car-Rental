@@ -78,7 +78,7 @@ export default function Home() {
 
 			<section>
 				<div className='flex justify-between xl:mx-[0px] mx-[10px]'>
-					<h2 className='xl:text-[30px] text-[20px] font-bold'>
+					<h2 className='xl:text-[30px] text-[20px] font-bold' >
 						{t('chooseCarSectionTitle')}
 					</h2>
 					<Link href={'/vehicles'}>
