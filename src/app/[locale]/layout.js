@@ -57,8 +57,8 @@ export default async function RootLayout({ children, params }) {
 								<Phone />
 							</button>
 							<div>
-								<p>Need help?</p>
-								<p className='font-semibold'>+996 247-1680</p>
+								<p>{t("needHelp")}</p>
+								<p className='font-semibold'>+992 62 20 10</p>
 							</div>
 						</div>
 						<div className='flex items-center gap-[10px]'>
