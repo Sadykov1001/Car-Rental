@@ -90,7 +90,7 @@ export default function Home() {
 				<div className='flex flex-wrap gap-20 justify-center'>
 					{dataCars?.slice(0, 3)?.map((e, i) => (
 						<div key={i} className='space-y-2.5'>
-							<div className='relative w-[350px] h-[220px] overflow-hidden rounded-xl'>
+							<div className='relative w-[370px] h-[220px] overflow-hidden rounded-xl'>
 								<Image src={e.img} alt={e.name} fill unoptimized />
 							</div>
 
