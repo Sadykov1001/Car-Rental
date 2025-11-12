@@ -56,7 +56,7 @@ export default function VehiclesPage() {
 				<div className='flex flex-wrap gap-10 justify-center'>
 					{filteredData?.length > 0 ? (
 						filteredData.map(e => (
-							<div key={e.id} className='space-y-2.5 w-[380px]'>
+							<div key={e.id} className='space-y-2.5 xl:w-[380px]'>
 								<div className='relative w-[380px] h-[220px] overflow-hidden rounded-xl'>
 									<Image src={e.img} alt={e.name} fill unoptimized />
 								</div>
